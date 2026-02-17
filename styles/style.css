@@ -1,0 +1,254 @@
+html {
+  font-size: 100%; /* 16px */
+}
+
+/* 
+  (px desejado ÷ px base) × 100
+  (20px ÷ 16px) × 100 = 125%
+  1.25rem = 20px
+
+  font-size: 125%;
+*/
+
+body {
+  font-family: Arial;
+  margin: 0px;
+  padding: 0px;
+  background-color: #f7f7f7;
+}
+
+a,
+ul,
+li,
+h1,
+h2,
+h3,
+p {
+  text-decoration: none;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* 3.75rem = 60px */
+header {
+  padding-top: clamp(2.5rem, 10vw, 9rem);
+  margin: 0px 20px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.5rem, 8vw, 3.75rem);
+}
+
+/* 1.25rem = 20px */
+.header-items {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  /* gap: clamp(1.25rem, 2vw, 1.5rem); */
+  gap: 25px;
+}
+
+.header-items a {
+  font-size: clamp(1rem, 2.25vw, 1.25rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  color: black;
+  background-color: white;
+  padding-block: 20px;
+  padding-inline: 40px;
+  border: 3px solid transparent;
+}
+
+.header-items a:hover {
+  border-color: #ee2211;
+  border-radius: 5px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  justify-self: center;
+  align-content: center;
+  padding-inline: 20px;
+  margin: 60px 0px 60px 60px;
+}
+
+/* Primeira Coluna */
+.container-bike {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 40px 60px 50px;
+  gap: 20px;
+  background: white;
+  text-align: right;
+  position: relative;
+}
+
+.container-bike::after {
+  content: "";
+  height: 4px;
+  width: 60px;
+  background-color: #ee2211;
+  position: absolute;
+  top: 30px;
+  right: -30px;
+}
+
+.container-bike p {
+  font-size: clamp(1rem, 2.25vw, 1.25rem);
+  margin-left: auto;
+}
+
+.container-bike h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.container-bike button {
+  width: 200px;
+  height: auto;
+  margin-left: auto;
+  padding: 20px 45px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ee2211;
+  color: white;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2.25vw, 1.25rem);
+  cursor: pointer;
+}
+
+.container-bike button:hover {
+  background-color: #cc1a0f;
+}
+
+.vantagens {
+  display: flex;
+  justify-content: flex-end;
+  background-image: url("../img/onda.svg");
+}
+
+.vantagens h2 {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  text-align: right;
+  text-transform: uppercase;
+  color: #c6c6c6;
+  align-self: center;
+  padding-right: 50px;
+}
+
+/* Segunda Coluna */
+img[alt="Bicicleta Nimbus Stark"] {
+  max-width: 100%;
+}
+
+/* 3.125rem = 50px */
+.infos-list {
+  background-color: white;
+  padding: clamp(1rem, 6vw, 3.125rem);
+}
+
+.infos-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  position: relative;
+}
+
+.infos-list li:nth-child(odd) {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+}
+
+.infos-list li:hover::before {
+  content: "";
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  background-color: red;
+  left: 0px;
+  top: 0px;
+}
+
+.infos-list p {
+  margin-top: 15px;
+  margin-left: 45px;
+  font-size: clamp(1rem, 2.25vw, 1.25rem);
+  white-space: normal;
+}
+
+.info-title {
+  display: flex;
+  gap: 20px;
+}
+
+footer {
+  font-size: 1.25rem;
+  text-align: center;
+  background-color: white;
+  padding: 50px;
+}
+
+@media (max-width: 1040px) {
+  .header-items {
+    gap: 10px;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    width: 50vw;
+  }
+
+  .container-bike {
+    text-align: left;
+  }
+
+  .container-bike h1 span {
+    display: block;
+  }
+
+  .container-bike p {
+    margin-right: auto;
+    margin-left: 0px;
+  }
+
+  .container-bike button {
+    margin-left: 0px;
+  }
+
+  .container-bike::after {
+    top: 100.3%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .vantagens {
+    height: 35vh;
+  }
+
+  .vantagens h2 {
+    padding-right: 0px;
+    text-align: center;
+    padding-inline: 4px;
+  }
+}
+
+@media (max-width: 680px) {
+  .header-items {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  main {
+    width: auto;
+    margin-inline: 20vw;
+  }
+
+  .infos-list p {
+    margin-left: 0px;
+  }
+}
