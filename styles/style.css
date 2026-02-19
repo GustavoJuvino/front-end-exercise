@@ -1,3 +1,31 @@
+:root {
+  --background: #f7f7f7;
+  --secondary-color: #ee2211;
+  --third-color: white;
+  --naughty-red: #cc1a0f;
+  --text-color: black;
+  --svg-onda: url("../img/onda-light.svg");
+  --h2-color: #c6c6c6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #474747;
+    --secondary-color: #ee2211;
+    --third-color: #3f3f3f;
+    --naughty-red: #cc1a0f;
+    --text-color: white;
+    --svg-onda: url("../img/onda-dark.svg");
+
+    .logo-light-mode {
+      display: none;
+    }
+    .logo-dark-mode {
+      display: block;
+    }
+  }
+}
+
 html {
   font-size: 100%; /* 16px */
 }
@@ -14,7 +42,7 @@ body {
   font-family: Arial;
   margin: 0px;
   padding: 0px;
-  background-color: #f7f7f7;
+  background-color: var(--background);
 }
 
 a,
@@ -50,20 +78,28 @@ header {
   gap: 25px;
 }
 
+.logo-light-mode {
+  display: block;
+}
+
+.logo-dark-mode {
+  display: none;
+}
+
 .header-items a {
   font-size: clamp(1rem, 2.25vw, 1.25rem);
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
-  color: black;
-  background-color: white;
+  color: var(--text-color);
+  background-color: var(--third-color);
   padding-block: 20px;
   padding-inline: 40px;
   border: 3px solid transparent;
 }
 
 .header-items a:hover {
-  border-color: #ee2211;
+  border-color: var(--secondary-color);
   border-radius: 5px;
 }
 
@@ -79,11 +115,12 @@ main {
 
 /* Primeira Coluna */
 .container-bike {
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   padding: 60px 40px 60px 50px;
   gap: 20px;
-  background: white;
+  background: var(--third-color);
   text-align: right;
   position: relative;
 }
@@ -92,7 +129,7 @@ main {
   content: "";
   height: 4px;
   width: 60px;
-  background-color: #ee2211;
+  background-color: var(--secondary-color);
   position: absolute;
   top: 30px;
   right: -30px;
@@ -114,7 +151,7 @@ main {
   padding: 20px 45px;
   border: none;
   border-radius: 5px;
-  background-color: #ee2211;
+  background-color: var(--secondary-color);
   color: white;
   text-transform: uppercase;
   font-size: clamp(1rem, 2.25vw, 1.25rem);
@@ -122,22 +159,24 @@ main {
 }
 
 .container-bike button:hover {
-  background-color: #cc1a0f;
+  background-color: var(--naughty-red);
 }
 
 .vantagens {
+  position: relative;
   display: flex;
   justify-content: flex-end;
-  background-image: url("../img/onda.svg");
+  background-image: var(--svg-onda);
 }
 
 .vantagens h2 {
   font-size: clamp(2.6rem, 6vw, 4rem);
-  text-align: right;
   text-transform: uppercase;
-  color: #c6c6c6;
+  color: var(--h2-color);
+  text-align: right;
   align-self: center;
   padding-right: 50px;
+  position: absolute;
 }
 
 /* Segunda Coluna */
@@ -147,8 +186,9 @@ img[alt="Bicicleta Nimbus Stark"] {
 
 /* 3.125rem = 50px */
 .infos-list {
-  background-color: white;
+  background-color: var(--third-color);
   padding: clamp(1rem, 6vw, 3.125rem);
+  color: var(--text-color);
 }
 
 .infos-list li {
@@ -159,7 +199,7 @@ img[alt="Bicicleta Nimbus Stark"] {
 }
 
 .infos-list li:nth-child(odd) {
-  background-color: #f7f7f7;
+  background-color: var(--background);
   border-radius: 5px;
 }
 
@@ -188,7 +228,7 @@ img[alt="Bicicleta Nimbus Stark"] {
 footer {
   font-size: 1.25rem;
   text-align: center;
-  background-color: white;
+  background-color: var(--background);
   padding: 50px;
 }
 
